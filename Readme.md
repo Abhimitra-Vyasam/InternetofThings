@@ -1,9 +1,10 @@
 Hardware:
-Particle
-Arduino
-Servo Motors
-Line Follower
-Photo Resistor
+
+Particle,
+Arduino,
+Servo Motors,
+Line Follower,
+Photo Resistor.
 
 Explanation:
 
