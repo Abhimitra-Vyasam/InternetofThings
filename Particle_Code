@@ -1,0 +1,63 @@
+// This #include statement was automatically added by the Particle IDE.
+
+
+//int test =D7;
+bool LastState;
+//bool CurrentState=LOW;
+void setup() {
+    
+    pinMode (D7, INPUT);
+    pinMode(D0, OUTPUT);
+    pinMode(A5, OUTPUT );
+    
+    digitalWrite(A5,HIGH);
+    digitalWrite(D0,LOW);
+    digitalRead(D7);
+    
+
+}
+void loop() {
+    bool value = digitalRead(D7);
+    String content;//= (value) ? "Open " : "Filled ";
+       if (value==HIGH)
+       {
+           content="Open";
+           digitalWrite(D0,HIGH);
+       }
+       if (value ==LOW)
+       {
+           content= "Filled";
+           digitalWrite(D0,LOW);
+       }
+       if (value != LastState)
+       {
+           Particle.publish("ParkingLot", content);
+            LastState=value; 
+       }
+      //Particle.publish("Debug", content);
+      Particle.publish("Debug", value);
+       delay(500);
+    
+  
+   //bool lightOn= (value);
+   //if (lightOn != lastLightState){
+     //  digitalWrite(D0, (lightOn)? HIGH: LOW);
+  // }
+       
+   
+//   if (value != lastLightState){
+    //   String content;//= (value) ? "Open " : "Filled ";
+      // if (value==HIGH)
+       //{
+         //  content="Open";
+//       }
+  //     else if (value ==LOW)
+    //   {
+      //     content= "Filled";
+       //}
+      // Particle.publish("ParkingLot", content);
+       //lastLightState = value;
+      // delay(500);
+   
+    
+}
